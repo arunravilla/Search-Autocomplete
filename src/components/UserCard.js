@@ -16,15 +16,11 @@ const UserCard = ({
     className={isActive ? "active" : ""}
     onMouseEnter={() => _onMouseEnter(idx)}
   >
-    <TextMarker
-      customClass="user_id"
-      text={item.id}
-      highlight={searchKeyword}
-    />
+    <TextMarker customClass="user_id" text={item.id} keyword={searchKeyword} />
     <TextMarker
       customClass="user_name"
       text={item.name}
-      highlight={searchKeyword}
+      keyword={searchKeyword}
     />
     {item.matchingItem && (
       <div className="user_list_item">{`"${item.matchingItem}" found in items`}</div>
@@ -32,7 +28,7 @@ const UserCard = ({
     <TextMarker
       customClass="user_address"
       text={item.address}
-      highlight={searchKeyword}
+      keyword={searchKeyword}
     />
   </li>
 );
