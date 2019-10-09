@@ -1,22 +1,110 @@
-.App {
+* {
+  box-sizing: border-box;
+}
+#root {
+  padding: 40px;
+}
+
+/* Styles for search box */
+.app {
+  position: relative;
+  max-width: 350px;
+}
+.input_wrapper {
+  -webkit-box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
+  -moz-box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
+  box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
+}
+.input_container {
+  position: relative;
+}
+.input_box {
+  background-color: #f2f3f4;
+  padding: 15px 35px;
+  font-size: 14px;
+  border-radius: 2px;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border: 1px solid transparent;
+}
+.input_box::placeholder {
+  color: #b3b6bd;
+}
+.input_box:focus {
+  outline: none;
+  background-color: #fff;
+  border: 1px solid #ebebeb;
+}
+.search-icon {
+  position: absolute;
+  top: 15px;
+  left: 10px;
+  pointer-events: none;
+}
+.close-icon {
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  cursor: pointer;
+}
+
+/* Styles for search result list */
+.search_result {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 250px;
+  overflow: scroll;
+}
+.search_result li {
+  padding: 15px;
+  border: 0.5px solid #ededee;
+}
+.search_result li.active {
+  background-color: #fefedc;
+}
+.search_result li big {
+  color: #4e8eee;
+  font-size: inherit;
+}
+
+/* Styles for user card */
+.user_id {
+  font-weight: bold;
+  padding-bottom: 3px;
+  color: #394048;
+  font-size: 14px;
+}
+.user_name {
+  font-style: italic;
+  padding-bottom: 3px;
+  color: #555b61;
+  font-size: 14px;
+}
+.user_address {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #73787e;
+  font-size: 12px;
+  padding-top: 5px;
+}
+.user_list_item {
+  font-size: 12px;
+  color: #4b4e51;
+  padding: 5px 0;
+  border-top: 1px solid #ededee;
+  border-bottom: 1px solid #ededee;
+}
+.user_list_item::before {
+  content: "• ";
+  color: #4e8eee;
+  font-size: 18px;
+}
+.no_user {
+  color: #73787e;
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #09d3ac;
+  padding: 20px;
 }
