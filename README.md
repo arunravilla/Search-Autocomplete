@@ -1,5 +1,7 @@
 # Search Autocomplete
 
+## Demo
+http://search-autocomplete.s3-website.ap-south-1.amazonaws.com/
 ## Available Scripts
 
 In the project directory, you can run:
