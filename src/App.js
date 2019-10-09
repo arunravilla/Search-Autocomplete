@@ -49,6 +49,8 @@ class App extends React.Component {
   }
   _onInputChange({ target }) {
     const { users } = this.state;
+    debugger;
+
     const filteredUsers = this.getfilteredUsers(users, target.value);
     this.setState({
       searchKeyword: target.value,
@@ -156,12 +158,10 @@ class App extends React.Component {
    * @memberof App
    */
   getfilteredUsers(data, filterKeyword) {
-    const filteredList = [];
     let regex = new RegExp(`^(${filterKeyword}).*$`, "i");
 
-    if (!data.length) return filteredList;
-
-    data.forEach(({ id, name, address, items }) => {
+    if (!data.length) return [];
+    const filteredList = data.filter(({ id, name, address, items }) => {
       // Used for filtering item from items by given keyword
       const matchingItem = items.find(
         item => item.toLowerCase() === filterKeyword.toLowerCase()
@@ -173,14 +173,16 @@ class App extends React.Component {
         regex.test(address) ||
         matchingItem
       ) {
-        filteredList.push({
+        return {
           id,
           name,
           address,
           ...(matchingItem ? { matchingItem } : null)
-        });
+        };
       }
+      return false;
     });
+
     return filteredList;
   }
 
@@ -206,7 +208,7 @@ class App extends React.Component {
               alt="close"
             />
           </div>
-          {isOpen && (
+          {isOpen && searchKeyword && (
             <div className="search_result_container">
               <ul className="search_result" ref={this.menuRef}>
                 {filteredUsers && filteredUsers.length ? (
